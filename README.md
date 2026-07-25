@@ -67,3 +67,17 @@ Business-level aggregations optimized for analytics.
 - Add Terraform infrastructure
 - Add CI/CD using GitHub Actions
 - Add real-time dashboards
+
+## Engineering Decisions
+
+### Why Parquet?
+
+Parquet was selected as the analytical storage format because its columnar structure is well suited for analytical workloads and reduces unnecessary data scanning.
+
+### Why Partitioning?
+
+The data is partitioned by order_date to improve query efficiency and support incremental processing.
+
+### Why Medallion Architecture?
+
+Separating raw, cleaned, and business-level data improves maintainability, data quality, and reprocessing capability.
